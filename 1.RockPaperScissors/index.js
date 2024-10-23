@@ -12,17 +12,17 @@ function playGame(rounds) {
         let computerChoice;
 
         while (humanChoice !== '1' && humanChoice !== '2' && humanChoice !== '3') {
-            humanChoice = prompt('Digite sua opção: \n[1] Rock \n[2] Paper \n[3] Scissors: ')
+            humanChoice = prompt('Digite sua opção: \n[1] Pedra \n[2] Papel \n[3] Tesoura: ')
         }
 
         function getComputerChoice() {
             computerChoice = Math.ceil(Math.random() * 3);
             if (computerChoice === 1) {
-                return computerChoice = 'Rock'
+                return computerChoice = 'Pedra'
             } else if (computerChoice === 2) {
-                return computerChoice = 'Paper'
+                return computerChoice = 'Papel'
             } else {
-                return computerChoice = 'Scissors'
+                return computerChoice = 'Tesoura'
             }
         }
 
@@ -30,11 +30,11 @@ function playGame(rounds) {
 
         function getHumanChoice() {
             if (humanChoice === '1') {
-                return humanChoice = 'Rock'
+                return humanChoice = 'Pedra'
             } else if (humanChoice === '2') {
-                return humanChoice = 'Paper'
+                return humanChoice = 'Pepel'
             } else {
-                return humanChoice = 'Scissors'
+                return humanChoice = 'Tesoura'
             }
         }
 
@@ -42,47 +42,47 @@ function playGame(rounds) {
 
 
         function playRound(humanChoice, computerChoice) {
-            if ((humanChoice === 'Rock' && computerChoice === 'Scissors') || (humanChoice === 'Paper' && computerChoice === 'Rock') || (humanChoice === 'Scissors' && computerChoice === 'Paper')) {
+            if ((humanChoice === 'Pedra' && computerChoice === 'Tesoura') || (humanChoice === 'Papel' && computerChoice === 'Pedra') || (humanChoice === 'Tesoura' && computerChoice === 'Papel')) {
                 humanScore = humanScore + 1;
                 computerScore = computerScore;
-                return `You WIN, ${humanChoice} beats ${computerChoice}`
+                return `Você GANHOU, ${humanChoice} ganha de ${computerChoice}`
             } else if (humanChoice === computerChoice) {
                 humanScore = humanScore;
                 computerScore = computerScore;
-                return `It's DRAW, you both play ${humanChoice}`
+                return `EMPATE, vocês dois escolheram ${humanChoice}`
             } else {
                 humanScore = humanScore;
                 computerScore = computerScore + 1;
-                return `You LOSE, ${computerChoice} beats ${humanChoice}`
+                return `Você perdeu, ${computerChoice} ganha de ${humanChoice}`
             }
 
         }
-        alert(playRound(humanChoice, computerChoice) + '\nHuman score: '+ humanScore + '\nComputer score: '+ computerScore);
+        alert(playRound(humanChoice, computerChoice) + '\nSua pontuação: '+ humanScore + '\nPontuação da casa: '+ computerScore);
     vCont = vCont + 1;
     }
 
 
     let resultRound;
     if (computerScore > humanScore) {
-        resultRound = 'LOSE';
+        resultRound = 'PERDEU';
     } else if (humanScore > computerScore) {
-        resultRound = 'WIN'; 
+        resultRound = 'GANHOU'; 
     } else {
-        resultRound = 'both DRAW'
+        resultRound = 'EMPATOU'
     }
-    alert(`You ${resultRound} this game! \nYour Score: ${humanScore} \nComputer Score: ${computerScore}`)
+    alert(`Você ${resultRound} esse jogo! \nSua pontuação: ${humanScore} \nPontuação da casa: ${computerScore}`)
 
-    vContinuar = prompt('Do you want to play again? Y/n: ').toUpperCase()
+    vContinuar = prompt('Quer jogar de novo? S/n: ').toUpperCase()
     if (vContinuar === '') {
-        vContinuar = 'Y'
+        vContinuar = 'S'
     }
-    while (vContinuar !== 'Y' && vContinuar !== 'N') {
-        vContinuar = prompt('PLEASE TYPE A VALID VALUE (y/n) \nDo you want to play again? Y/n: ').toUpperCase()
+    while (vContinuar !== 'S' && vContinuar !== 'N') {
+        vContinuar = prompt('Por favor digite um valor válido (s/n) \nQuer jogar de novo? S/n: ').toUpperCase()
         if (vContinuar === '') {
-            vContinuar = 'Y'
+            vContinuar = 'S'
         }
     }
-    if (vContinuar === 'Y') {
+    if (vContinuar === 'S') {
         let rounds = prompt('Quantos rounds deseja jogar? ')
         playGame(rounds);
     } else {

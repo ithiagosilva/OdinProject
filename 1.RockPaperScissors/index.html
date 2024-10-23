@@ -6,7 +6,35 @@
     <title>Rock Paper Scissors</title>
 </head>
 <body>
-    <button aria-label="btn" onclick="startGame()" type="button">JOGAR PEDRA PAPEL TESOURA</button>
+    <header>
+        <h1>Pedra <br> Papel <br> Tesoura</h1>
+        <div class="player-score-box">
+            <p>Player</p>
+            <p class="score">0</p>
+        </div>
+        <div class="computer-score-box">
+            <p>House</p>
+            <p class="score">0</p>
+        </div>
+    </header>
+
+    <main>
+        <div class="game">
+            <div class="player">
+                <p>Você escolheu</p>
+                <p>ESCOLHA</p>
+            </div>
+
+            <h2>Resultado do Jogo</h2>
+
+            <div class="computer">
+                <p>Casa escolheu</p>
+                <p>ESCOLHA</p>
+            </div>
+        </div>
+        <button aria-label="btn" onclick="startGame()" type="button">JOGAR PEDRA PAPEL TESOURA</button>
+    </main>
+    
     <script src="./index.js"></script>
 </body>
 </html>
