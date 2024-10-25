@@ -23,19 +23,21 @@
 
     <main>
         <div class="game">
-            <div class="player">
+            <div class="player" id="player">
                 <p>Você escolheu</p>
-                <p id="escolha-usuario"></p>
             </div>
 
-            <h2>Resultado do Jogo</h2>
+            <h2 id="game-result">ESCOLHA UMA OPÇÃO ABAIXO</h2>
 
-            <div class="computer">
+            <div class="computer" id="computer">
                 <p>Casa escolheu</p>
-                <p id="escolha-comp"></p>
             </div>
         </div>
-        <button aria-label="btn" class="btn-start" onclick="startGame()" type="button">JOGAR</button>
+        <div class="opcoes">
+            <img id="pedra" src="./assets/pedra.png" alt="">
+            <img id="papel" src="./assets/papel.png" alt="">
+            <img id="tesoura" src="./assets/tesoura.png" alt="">
+        </div>
     </main>
     
     <script src="./index.js"></script>

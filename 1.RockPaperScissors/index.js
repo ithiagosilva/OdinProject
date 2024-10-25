@@ -1,3 +1,7 @@
+let scorePlayer = document.getElementById('player-score')
+let scoreComp = document.getElementById('computer-score')
+
+
 function startGame() {
     let rounds = prompt('Informe quantos rounds deseja jogar: ')
     playGame(rounds)
@@ -44,15 +48,19 @@ function playGame(rounds) {
         function playRound(humanChoice, computerChoice) {
             if ((humanChoice === 'Pedra' && computerChoice === 'Tesoura') || (humanChoice === 'Papel' && computerChoice === 'Pedra') || (humanChoice === 'Tesoura' && computerChoice === 'Papel')) {
                 humanScore = humanScore + 1;
-                computerScore = computerScore;
+                scorePlayer = scorePlayer.innerText=`${humanScore}`
+                // computerScore = computerScore;
                 return `Você GANHOU, ${humanChoice} ganha de ${computerChoice}`
+
             } else if (humanChoice === computerChoice) {
-                humanScore = humanScore;
-                computerScore = computerScore;
+                // humanScore = humanScore;
+                // computerScore = computerScore;
                 return `EMPATE, vocês dois escolheram ${humanChoice}`
+
             } else {
-                humanScore = humanScore;
+                // humanScore = humanScore;
                 computerScore = computerScore + 1;
+                scoreComp = scoreComp.innerText=`${computerScore}`
                 return `Você perdeu, ${computerChoice} ganha de ${humanChoice}`
             }
 
