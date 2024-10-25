@@ -108,5 +108,6 @@ function playGame() {
 
 }
 
+let titulo = document.querySelector("header").firstElementChild
 
-
+let br = titulo.querySelectorAll("br")
