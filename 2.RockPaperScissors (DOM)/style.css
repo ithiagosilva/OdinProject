@@ -17,6 +17,7 @@
 
 body {
     background: linear-gradient(var(--escuro), var(--medio));
+    height: 100vh;
 }
 
 header {
@@ -27,8 +28,8 @@ header {
     background-color: var(--medio);
     width: 80%;
     margin-left: 10%;
-    margin-top: 2vh;
-    border-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
 header h1 {
@@ -39,7 +40,7 @@ header h1 {
 
 .scores {
     display: flex;
-    gap: 50px;
+    gap: 40px;
 }
 
 .player-score-box, .computer-score-box {
@@ -63,7 +64,7 @@ main {
 }
 
 .game p {
-    margin-bottom: 40px;
+    margin-bottom: 20px;
     font-size: 1.5rem;
 }
 
@@ -117,7 +118,7 @@ main {
         height: 40px;
     }
     .game img {
-        width: 110px;
+        width: 100px;
     }
     header {
         height: 15vh;
@@ -127,6 +128,17 @@ main {
     }
     .game {
         height: 70vh;
+    }
+    .player, .computer {
+        width: 80%;
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        gap: 30px;
+    }
+    .computer {
+        flex-direction: row-reverse;
+        justify-content: right;
     }
 }
 
