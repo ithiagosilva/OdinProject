@@ -34,6 +34,9 @@ function playGame() {
         document.querySelector('.maozinha-user').remove()
     } 
 
+    document.querySelector('.texto-voce').innerText="Você"
+    document.querySelector('.texto-casa').innerText="Casa"
+
     function getComputerChoice() {
         computerChoice = Math.ceil(Math.random() * 3);
         if (computerChoice === 1) {
@@ -96,7 +99,7 @@ function playGame() {
         } else {
             computerScore += 1;
             scoreComp.innerText=computerScore
-            return gameResult.innerText=`Você perdeu, ${computerChoice} ganha de ${humanChoice}`
+            return gameResult.innerText=`Você PERDEU, ${computerChoice} ganha de ${humanChoice}`
         }
         
     }
