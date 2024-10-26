@@ -1,0 +1,47 @@
+*{
+    margin: 0;
+    padding: 0;
+
+    position: relative;
+
+}
+
+.app {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+}
+
+.canvas {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 500px; width: 800px;
+    border: 50px solid rgb(255, 0, 0);
+    background-color: #e4e4e4;
+    border-radius: 10px;
+}
+
+.botoes {
+    position: absolute;
+}
+
+.circle1, .circle2 {
+    width: 80px; height: 80px;
+    border-radius: 50%;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(146, 146, 146);
+}
+
+.circle1 {
+    position: absolute;
+    left: 380px;
+    top: 270px;
+}
+
+.circle2 {
+    right: 380px;
+    top: 270px;
+}
