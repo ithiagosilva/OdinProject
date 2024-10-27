@@ -1,2 +1,2 @@
 # OdinProject
-Web Devlopment Curse Open Source
+Web Development Open Source Course
