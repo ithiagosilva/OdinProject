@@ -5,7 +5,14 @@
 // 38 = up
 // 39 = left
 // 40 = down
-body = document.querySelector('body')
+
+let btnEsq = document.querySelector('#btn-esquerda')
+let btnDir = document.querySelector('#btn-direita')
+let btnCima = document.querySelector('#btn-cima')
+let btnBaixo = document.querySelector('#btn-baixo')
+let btn = document.querySelectorAll('.btn')
+
+let body = document.querySelector('body')
 
 let x = 150
 let y = 75
@@ -16,7 +23,7 @@ let valorParadaY = y;
 
 const c = document.getElementById('myCanvas');
 const ctx = c.getContext("2d");
-ctx.fillRect(x,y,esq,baixo); // x, y, esq, baixo
+ctx.fillRect(x,y,esq,baixo);
 
 
 let tecla;
@@ -26,40 +33,59 @@ body.addEventListener('keydown', (event) => {
 })
 
 body.addEventListener('keyup', () => {
-    x = valorParadaX
-    y = valorParadaY
+    return stop();
 })
 
-
 function move() {
-    // Move Right
-    if (tecla === 37) {
-        esq = esq - 1
-        baixo = 1
-        valorParadaX = x + esq
-    } 
-    
-    //Move UP
-    if (tecla === 38) {
-        baixo = baixo -1
-        esq = 1
-        valorParadaY = y + baixo
-    } 
-    
-    // move left
-    if (tecla === 39) {
-        // x = x + baixo
-        esq = esq + 1
-        baixo = 1
-        valorParadaX = x + esq
-    } 
-    
-    //Move Down
-    if (tecla === 40) {
-        baixo = baixo + 1
-        esq = 1
-        valorParadaY = y + baixo
+    function right() {
+        if (tecla === 37) {
+            esq = esq - 1
+            baixo = 1
+            valorParadaX = x + esq
+        } 
     }
-    
-    ctx.fillRect(x,y,esq,baixo); // x, y, esq, baixo
+
+    right();
+
+    function up() {
+        if (tecla === 38) {
+            baixo = baixo -1
+            esq = 1
+            valorParadaY = y + baixo
+        } 
+    }
+
+    up();
+
+    function left() {
+        if (tecla === 39) {
+            esq = esq + 1
+            baixo = 1
+            valorParadaX = x + esq
+        } 
+    }
+
+    left();
+
+    function down() {
+        if (tecla === 40) {
+            baixo = baixo + 1
+            esq = 1
+            valorParadaY = y + baixo
+        }
+
+    }
+
+    down();
+
+    ctx.fillRect(x,y,esq,baixo);
 }
+
+
+function stop() {
+    x = valorParadaX
+    y = valorParadaY
+    esq = 0
+    baixo = 0
+}
+
