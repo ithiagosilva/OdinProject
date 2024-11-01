@@ -1,0 +1,41 @@
+* {
+    margin: 0;
+    padding: 0;
+
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.app {
+    height: 600px;
+    width: 450px;
+    border: 1px solid black;
+    padding: 20px;
+}
+
+.tela {
+    height: 10%;
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 5%;
+    border: 1px solid black;
+    margin-bottom: 20px;
+}
+
+.botoes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    height: 85%;
+    gap: 10px;
+}
+
+.btn {
+    padding: 40px 40px;
+}
