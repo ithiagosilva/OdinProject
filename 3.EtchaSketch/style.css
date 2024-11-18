@@ -1,8 +1,29 @@
 *{
     margin: 0;
     padding: 0;
-
     position: relative;
+
+}
+
+body {
+    
+    background-color: rgb(16, 28, 45);
+}
+
+h1 {
+    position: absolute;
+    width: 100%;
+    bottom: 120px;
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: rgb(255, 0, 0);
+    z-index: 1;
+    white-space: nowrap;
+    transition: .2s;
+}
+
+h1:hover {
+    color: aliceblue;
 
 }
 
