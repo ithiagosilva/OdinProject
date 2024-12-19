@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Biblioteca</title>
+</head>
+<body>
+    <main id="app">
+        <section class="container-addLivro">
+            <h1 id="titulo-mbiblioteca">Minha Biblioteca</h1>
+            <button type="button" id="btnAddNovoLivro">+</button>
+            <form id="formulario" action="">
+                <h1>Adicionar Livro</h1>
+                <label for="titulo">Titulo do Livro</label><br>
+                <input type="text" name="titulo" id="titulo"><br><br>
+
+                <label for="capa">URL da Capa</label><br>
+                <input type="text" name="capa" id="capa"><br><br>
+
+                <label for="sinopse">Sinopse</label><br>
+                <textarea type="text" name="sinopse" id="sinopse" rows="5"></textarea><br><br>
+
+                <label for="paginas">Quantidade de Páginas</label><br>
+                <input type="text" name="paginas" id="paginas"><br><br>
+
+                <label for="ano">Ano de Publicação</label><br>
+                <input type="text" name="ano" id="ano"><br><br>
+
+                <label for="lido">Já Leu?</label>
+                <select name="lido" id="lido">
+                    <option value="sim">Sim</option>
+                    <option value="nao" selected>Não</option>
+                </select><br><br>
+                
+                <button id="btnAdicionar" type="submit">Adicionar</button>
+                <button id="btnFechar" type="submit">Fechar</button>
+            </form>
+        </section>
+        <ul id="livros"></ul>
+    </main>
+    <script src="./index.js" type="text/javascript"></script>
+</body>
+</html>
