@@ -1,5 +1,3 @@
-// https://m.media-amazon.com/images/I/61NHEYzP6kL._AC_UF1000,1000_QL80_.jpg
-
 let btnAddNovoLivro = document.getElementById('btnAddNovoLivro')
 let formulario = document.getElementById('formulario')
 let inputTitulo = document.getElementById('titulo')
@@ -23,13 +21,20 @@ function isEmpty() {
     myLibrary.length === 0 ? pVazio.style.display = "block" : pVazio.style.display = "none"
 }
 
-btnAddNovoLivro.addEventListener('click', () => {
+function addNovoLivro() {
     btnAddNovoLivro.style.display = "none";
     formulario.style.display = "block";
     document.getElementById('titulo-mbiblioteca').style.display = "none";
     livros.style.display = "none";
     pVazio.style.display = "none";
-});
+    document.querySelectorAll('input').forEach((input) => {
+        input.value = "";
+    });
+    document.querySelector('textarea').value = '';
+}
+
+btnAddNovoLivro.addEventListener('click', addNovoLivro);
+
 
 btnFechar.addEventListener('click', () => {
     btnAddNovoLivro.style.display = "block";
@@ -42,8 +47,11 @@ btnFechar.addEventListener('click', () => {
 btnAdicionar.addEventListener('click', () => {
     let vTitulo = inputTitulo.value;
     let vCapa = inputCapa.value;
-    if (vCapa === "") { vCapa = "./placeholder.png" }
+    if (vCapa.substring(0,8) !== 'https://') { vCapa = "./placeholder.png" }
     let vSinopse = inputSinopse.value;
+    if (vSinopse === "") {
+        vSinopse = 'Sem informação';
+    }
     let vPaginas = inputPaginas.value;
     let vAno = inputAno.value;
     let vLido = inputLido.value;
@@ -55,23 +63,26 @@ btnAdicionar.addEventListener('click', () => {
         vLido = "Estou lendo";
     }
 
-    if (!vTitulo || !vSinopse || !vPaginas || !vAno) {
-        console.log("Preenchimento incorreto")
+    if (!vTitulo || !vPaginas || !vAno) {
+        document.querySelectorAll('input').forEach((item) => {
+            if(item.value === "" && item.name !== 'capa') {
+                item.style.border = "2px solid red";
+            }
+        });
     } else {
+        for (let i = 0; i < livros.children.length; i++) {
+            if (livros.childNodes[i] === livros.childNodes[i]) {
+                livros.childNodes[i].remove();
+            }
+        }
         document.getElementById('titulo-mbiblioteca').style.display = "block";
         btnAddNovoLivro.style.display = "block";
         formulario.style.display = "none";
         addBooktoLibrary(vTitulo, vCapa, vSinopse, vPaginas, vAno, vLido);
         criarCard(myLibrary);
         livros.style.display = "flex";
-        if (livros.childNodes.length > 1) {
-            for (let i = 1; i < livros.childNodes.length; i++) {
-                livros.removeChild(livros.childNodes[i]);
-            }
-        }
         salvarLivros();
-    }
-
+    }       
 });
 
 function Book(titulo, capa, sinopse, paginas, ano, lido) {
@@ -190,9 +201,9 @@ function criarCard(lista) {
             myLibrary.splice(i, 1);
             salvarLivros();
             isEmpty();
-        });     
-        // console.log(lista[i]);
+        });
     }
+
 }
 
 var listaDeLivrosSalvos = [];
@@ -208,7 +219,7 @@ function exibirLivrosSalvos() {
     let localGet = localStorage.getItem('livros');
     listaJSONconv = JSON.parse(localGet);
     for (let i = 0; i < listaJSONconv.length; i++) {
-        addBooktoLibrary(listaJSONconv[i].titulo, listaJSONconv[i].capa, listaJSONconv[i].sinopse, listaJSONconv[i].paginas, listaJSONconv[i].ano);
+        addBooktoLibrary(listaJSONconv[i].titulo, listaJSONconv[i].capa, listaJSONconv[i].sinopse, listaJSONconv[i].paginas, listaJSONconv[i].ano, listaJSONconv[i].lido);
 
     }
     criarCard(listaJSONconv);
@@ -219,3 +230,4 @@ if (localStorage.getItem('livros')) {
 }
 
 isEmpty();
+

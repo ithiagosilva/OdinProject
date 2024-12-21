@@ -152,4 +152,13 @@ textarea {
     border-radius: 20px;
     gap: 30px;
     margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+.card p {
+    margin-bottom: 10px;
+}
+.card small {
+    color: #383838;
 }
